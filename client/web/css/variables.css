@@ -63,5 +63,7 @@
   --font-size-xl: 2rem; /*32px */
   --font-size-xxl: 2.5rem; /* 40px */
 
-  --letter-spacing: 0.02rem;
+  --lpp-6: 0.0375rem; /* 0.6px*/
+
+  --lh-130: 130%;
 }

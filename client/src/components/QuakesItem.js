@@ -4,11 +4,11 @@ import styles from './QuakesItem.css';
 
 const QuakesItem = ({ id, magnitude, location, when }) => (
   <div className={styles.quakes__item}>
-    <h3>Quake: {id}</h3>
+    <h3><strong>Quake:</strong> {id}</h3>
     <ul>
-      <li>Location: {location}</li>
-      <li>magnitude: {magnitude}</li>
-      <li>When: {when}</li>
+      <li><strong>Location:</strong> {location}</li>
+      <li><strong>magnitude:</strong> {magnitude}</li>
+      <li><strong>When:</strong> {when}</li>
     </ul>
   </div>
 );

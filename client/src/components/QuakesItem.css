@@ -5,4 +5,6 @@
   border: var(--space1) solid var(--dark-grey);
   grid-column: span 3;
   padding: var(--space10);
+  letter-spacing: var(--lpp-6);
+  line-height: var(--lh-130);
 }
