@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'ClearSans';
+  src: url('../fonts/ClearSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ClearSansItalic';
+  src: url('../fonts/ClearSans-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ClearSansLight';
+  src: url('../fonts/ClearSans-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ClearSansBold';
+  src: url('../fonts/ClearSans-Bold.woff2') format('woff2');
+}
