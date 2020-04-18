@@ -1,0 +1,7 @@
+.load__more {
+  grid-column: 6 / 8;
+  border: none;
+  padding: 20px;
+  font-size: 1.1rem;
+  background: lightskyblue;
+}

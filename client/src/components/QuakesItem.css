@@ -1,0 +1,6 @@
+.quakes__item {
+  background: #f5f5f5;
+  border: 1px solid #c5c5c5;
+  grid-column: span 3;
+  padding: 10px;
+}

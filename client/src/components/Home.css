@@ -1,8 +1,13 @@
-.text {
+.content {
   display: flex;
-  color: var(--color-black);
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 2em;
+  flex-direction: column;
+  grid-column: 1 / -1;
+  width: 90em;
+  margin: 0 auto;
+}
+
+.content__header {
+  font-size: 1.3rem;
+  align-self: center;
+  margin-bottom: 30px;
 }

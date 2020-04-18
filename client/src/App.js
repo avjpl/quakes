@@ -13,6 +13,8 @@ import { renderRoutes } from 'react-router-config';
 
 import { routes } from './routes/syncRoutes';
 
+import styles from './App.css';
+
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.forEach(({ message, locations, path }) =>
@@ -48,8 +50,8 @@ const client = new ApolloClient({
 const App = () => (
   <ApolloProvider client={client}>
     <Router>
-      <Fragment>
-        <nav>
+      <div className={styles.app}>
+        <nav className={styles.nav}>
           <ul>
             <li>
               <a target="_blank" href='https://reactjs.org/docs/getting-started.html'>React docs</a>
@@ -58,7 +60,7 @@ const App = () => (
         </nav>
 
         {renderRoutes(routes)}
-      </Fragment>
+      </div>
     </Router>
 
   </ApolloProvider>

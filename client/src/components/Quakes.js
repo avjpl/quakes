@@ -1,51 +1,12 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
+import QuakesItem from './QuakesItem';
+import LoadMore from './LoadMore';
+
 import { GET_ALL_QUAKES } from '../queries';
 
-const QuakesItem = ({ id, magnitude, location, when }) => {
-  return (
-    <>
-      <h3>Quake: {id}</h3>
-      <ul>
-        <li>Location: {location}</li>
-        <li>magnitude: {magnitude}</li>
-        <li>When: {when}</li>
-      </ul>
-    </>
-  )
-};
-
-const Button = ({ quakes: { cursor, hasMore }, fetchMore }) => {
-  return (
-    <>
-      {
-        hasMore &&
-        <button onClick={() =>
-          fetchMore({
-            variables: { after: cursor },
-            updateQuery: (prev, { fetchMoreResult, ...rest }) => {
-              console.log({ rest });
-              if (!fetchMoreResult) return prev;
-
-              return {
-                ...fetchMoreResult,
-                // overwrite quakes with the following
-                quakes: {
-                  ...fetchMoreResult.quakes, //
-                  quakes: [ // update to array result with previous and more results
-                    ...prev.quakes.quakes,
-                    ...fetchMoreResult.quakes.quakes
-                  ],
-                },
-              };
-            },
-          })}
-        >Load More</button>
-      }
-    </>
-  )
-};
+import styles from './Quakes.css';
 
 const Quakes = () => {
   const { data, loading, error, fetchMore } = useQuery(GET_ALL_QUAKES);
@@ -55,7 +16,7 @@ const Quakes = () => {
   if (!data) return <p>Not found</p>;
 
   return (
-    <>
+    <div className={styles.quakes}>
       {
         data.quakes &&
           data.quakes.quakes &&
@@ -63,8 +24,8 @@ const Quakes = () => {
             <QuakesItem key={quake.id} {...quake} />
           ))
       }
-      <Button {...{ ...data, fetchMore }} />
-    </>
+      <LoadMore {...{ ...data, fetchMore }} />
+    </div>
   )
 };
 
