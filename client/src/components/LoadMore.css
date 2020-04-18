@@ -1,7 +1,9 @@
+@import '@cssVariables';
+
 .load__more {
   grid-column: 6 / 8;
   border: none;
-  padding: 20px;
-  font-size: 1.1rem;
-  background: lightskyblue;
+  padding: var(--space20);
+  font-size: var(--space16);
+  background: var(--lightskyblue);
 }

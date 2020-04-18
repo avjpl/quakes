@@ -1,13 +1,15 @@
+@import '@cssVariables';
+
 .content {
   display: flex;
   flex-direction: column;
   grid-column: 1 / -1;
-  width: 90em;
+  width: var(--max-width-xxl);
   margin: 0 auto;
 }
 
 .content__header {
-  font-size: 1.3rem;
+  font-size: var(--font-size-l);
   align-self: center;
-  margin-bottom: 30px;
+  margin-bottom: var(--space30);
 }

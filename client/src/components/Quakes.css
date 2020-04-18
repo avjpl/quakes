@@ -1,5 +1,7 @@
+@import '@cssVariables';
+
 .quakes {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: var(--space20);
   grid-template-columns: repeat(12, 1fr);
 }

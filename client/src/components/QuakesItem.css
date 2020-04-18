@@ -1,6 +1,8 @@
+@import '@cssVariables';
+
 .quakes__item {
-  background: #f5f5f5;
-  border: 1px solid #c5c5c5;
+  background: var(--light-grey);
+  border: var(--space1) solid var(--dark-grey);
   grid-column: span 3;
-  padding: 10px;
+  padding: var(--space10);
 }
