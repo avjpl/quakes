@@ -1,16 +1,34 @@
 import React from 'react';
 
-import Gallery from './Gallery';
-
-import styles from './Home.css';
+import Quakes from './Quakes';
 
 const Home = () => {
   return (
-    <Gallery>
-      <Gallery.Image />
-      <Gallery.Video />
-    </Gallery>
+    <>
+      <h1>Quakes</h1>
+      <Quakes />
+    </>
   );
 };
 
 export default Home;
+
+/*
+  client
+  .query({
+    query: gql`
+      query GetQuakes {
+        quakes {
+          cursor
+          hasMore
+          quakes {
+            location
+            magnitude
+            cursor
+          }
+        }
+      }
+    `
+  })
+  .then(result => console.log(result));
+*/
