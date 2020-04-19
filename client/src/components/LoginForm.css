@@ -1,0 +1,46 @@
+@import '@cssVariables';
+
+.form {
+  display: flex;
+  align-content: center;
+  grid-row: 2 / 3;
+  grid-column: 2 / -2;
+  justify-content: center;
+}
+
+.form__content {
+  display: flex;
+  border: 1px solid var(--grey);
+  flex-basis: var(--max-width-s);
+}
+
+.form__label,
+.form__input {
+  width: 100%;
+}
+
+.form__label {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: auto;
+}
+
+.form__input {
+  border-right: none;
+  padding-left: var(--space20);
+  font-size: var(--space16);
+  margin-top: var(--space3);
+}
+
+.form__button {
+  border-left: none;
+  padding: var(--space40);
+  font-size: var(--space16);
+}
+
+.form__input,
+.form__button {
+  border: none;
+  padding-top: var(--space20);
+  padding-bottom: var(--space20);
+}

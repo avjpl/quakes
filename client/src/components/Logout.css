@@ -1,0 +1,12 @@
+@import '@cssVariables';
+
+.logout {
+  flex: 1 1 var(--space40);
+  width: auto;
+  margin-left: auto;
+  margin-bottom: var(--space20);
+  background: none;
+  border: none;
+  text-align: right;
+  font-size: var(--space16);
+}

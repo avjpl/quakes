@@ -101,7 +101,7 @@ exports.generateSourceMaps = ({ type }) => ({
 });
 
 exports.logger = (a, b) => {
-  console.log(`Logger: ${a} -> ${b}`); // eslint-disable-line
+  console.info(`Logger: ${a} -> ${b}`); // eslint-disable-line
 
   return {};
 };

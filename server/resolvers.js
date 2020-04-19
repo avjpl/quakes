@@ -39,14 +39,15 @@ module.exports = {
       if (user) {
         const token = jwt.sign(
           { email: user.email, id: user.id },
-          ')gpAAEpA[tsXjaskJ}vEn2qFC8CqRmE4Djm)WT}HNXy2P(akD[Qk%b',
+          process.env.SECRET,
           { expiresIn: 60 * 30 });
 
         return token;
       }
 
       if (!user) {
-        console.log('User not found');
+        console.info('User not found');
+        throw new Error('Invalid username or password');
       }
     },
     saveRecord: async (_, { recordId }, { dataSources }) => {
@@ -54,7 +55,7 @@ module.exports = {
 
       return {
         success: results.length ? true : false,
-        message: results.length ? 'Data saved' : "Data not saved",
+        message: results.length ? 'Data saved' : 'Data not saved',
         records: results
       };
     },

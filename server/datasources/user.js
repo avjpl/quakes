@@ -1,4 +1,5 @@
 const { DataSource } = require('apollo-datasource');
+const _ = require('lodash');
 
 class UserAPI extends DataSource {
   constructor({ store }) {
@@ -28,46 +29,26 @@ class UserAPI extends DataSource {
   }
 
   async getUser({ email: emailArg }) {
-    let index = 0;
-
     const email = this.context && this.context.user
       ? this.context.user.email
       : emailArg;
 
-    const theUser = this.store.users.map(user => {
-      if (email === user.email) {
-        index = this.store.users.indexOf(user);
-        return user;
-      }
-    });
+    const user = this.store.users.filter(user => email === user.email);
 
-    return theUser[index];
+    return _.head(user);
   }
 
   async saveRecord({ recordId }) {
-    const userId = this.context.user.id;
-    let users = [];
+    const id = this.context.user.id;
 
-    !userId
-      ? console.log('No user on context')
-      : console.log('User on context');
+    if (!id) {
+      throw new Error('Unable to save record');
+    }
 
-    const usercheck = this.store.users.map(user => {
-      if (userId == user.id) {
-        user.records.push({ id: recordId });
-        return user;
-      }
-    });
+    const user = _.head(this.store.users.filter(user => id == user.id));
+    user.records.push({ id: recordId });
 
-    await usercheck.forEach(user => {
-      if (user) {
-        users.push(user);
-      }
-    });
-
-    return users[0].records.length > 4
-      ? users[0].records
-      : 'Oh, noes!';
+    return _.get(user, ['records'], []);
   }
 }
 

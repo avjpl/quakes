@@ -28,5 +28,5 @@ axios({
     id,
   };
 
-  console.log(customPayload);
+  console.info(customPayload);
 });
