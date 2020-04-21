@@ -4,15 +4,14 @@ import { useApolloClient } from "@apollo/react-hooks";
 import styles from './Logout.css';
 
 const Logout = () => {
-  const { writeData, resetStore, onResetStore } = useApolloClient();
+  const client = useApolloClient();
 
   const logOutHandler = (evt) => {
     evt.preventDefault();
 
-    writeData({ data: { isLoggedIn: false } });
+    client.writeData({ data: { isLoggedIn: false } });
     localStorage.clear();
-    resetStore();
-    onResetStore();
+    client.clearStore();
   }
 
   return (
